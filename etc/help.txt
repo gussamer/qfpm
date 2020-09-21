@@ -1,0 +1,9 @@
+QRFDev Package Manager
+
+Welcome!
+
+Running this does nothing at all.
+
+The npm install command writes scripts to the bin folder
+
+The package.json is updated with the script locations
