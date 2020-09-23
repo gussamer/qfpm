@@ -27,7 +27,15 @@ fs.readdirSync(qfPath).forEach((script) => {
 })
 console.log('[!] finished old script removal!')
 console.log('[!] starting gitignore append!')
-fs.appendFileSync(path.resolve(installPath,'.gitignore'),'bin/qfpm/')
+const ignorePath = path.resolve(installPath,'.gitignore')
+if(fs.existsSync(ignorePath)){
+    const ignore = fs.readFileSync(ignorePath)
+    if(ignore.indexOf('bin/qfpm')==-1){
+        fs.appendFileSync(ignorePath,'\n#qfpm\nbin/qfpm/\n')
+    }
+}else{
+    fs.appendFileSync(ignorePath,'\n#qfpm\nbin/qfpm/\n')
+}
 console.log('[!] finished gitignore append!')
 console.log('[!] starting package.json update!')
 let packJSON = fs.readFileSync(path.resolve(installPath,'package.json'))
