@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-'use strict'
 console.log('[!] installing qfpm!')
 const fs = require('fs')
 const binExists = fs.existsSync('bin')
