@@ -1,6 +1,6 @@
 {
     "name": "qfpm",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "description": "installs the NPM SFDX Package Dependancy Resolution Proof of Concept scripts",
     "main": "index.js",
     "keywords": [
