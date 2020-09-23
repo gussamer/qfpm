@@ -10,7 +10,7 @@ if(!qfpmAlreadyExists){
 }
 console.log('[!] starting script copy!')
 console.log(fs.readdirSync('.'))
-console.log(fs.readdirSync('..'))
+console.log(fs.readdirSync( process.env.INIT_CWD ))
 let scriptNames = []
 fs.readdirSync('./node_modules/qfpm/src').forEach(script => {
     fs.copyFileSync('./node_modules/qfpm/src/'+script,'./bin/qfpm/'+script);
