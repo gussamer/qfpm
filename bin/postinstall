@@ -1,16 +1,5 @@
 #!/usr/bin/env node
 'use strict'
-/*
-#!/usr/bin/env bash
-# check if bin exists
-# mkdir bin
-# check if qfpm exists
-# mkdir bin/qfpm
-# copy scripts
-# cp node_modules/qfpm/src/* bin/qfpm/*
-# echo "bin/qfpm/" >> .gitignore
-# update package.json with scripts
-*/
 console.log('[!] installing qfpm!')
 const fs = require('fs')
 const binExists = fs.existsSync('bin')
