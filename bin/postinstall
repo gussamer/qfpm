@@ -1,5 +1,6 @@
 console.log('[!] installing qfpm!')
 const fs = require('fs')
+const path = require('path')
 const binExists = fs.existsSync('bin')
 if(!binExists){
     fs.mkdirSync('bin')
@@ -14,7 +15,7 @@ console.log( process.env.INIT_CWD )
 console.log(fs.readdirSync( process.env.INIT_CWD ))
 let scriptNames = []
 fs.readdirSync('./src').forEach(script => {
-    fs.copyFileSync('./src/'+script,process.env.INIT_CWD+'/bin/qfpm/'+script);
+    fs.copyFileSync('./src/'+script,path.resolve(process.env.INIT_CWD,'bin/qfpm/'+script))
     scriptNames.push(script)
 })
 console.log('[!] finished script copy!')
