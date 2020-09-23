@@ -9,21 +9,23 @@ if(!qfpmAlreadyExists){
     fs.mkdirSync('bin/qfpm')
 }
 console.log('[!] starting script copy!')
+console.log(fs.readdirSync('.'))
+console.log(fs.readdirSync('..'))
 let scriptNames = []
-fs.readdirSync('node_modules/qfpm/src').forEach(script => {
-    fs.copyFileSync('node_modules/qfpm/src/'+script,'bin/qfpm/'+script);
+fs.readdirSync('./node_modules/qfpm/src').forEach(script => {
+    fs.copyFileSync('./node_modules/qfpm/src/'+script,'./bin/qfpm/'+script);
     scriptNames.push(script)
 })
 console.log('[!] finished script copy!')
 console.log('[!] starting old script removal!')
-fs.readdirSync('bin/qfpm').forEach((script) => {
+fs.readdirSync('./bin/qfpm').forEach((script) => {
     if(scriptNames.indexOf(script)==-1){
-        fs.unlinkSync('bin/qfpm/'+script)
+        fs.unlinkSync('./bin/qfpm/'+script)
     }
 })
 console.log('[!] finished old script removal!')
 console.log('[!] starting gitignore append!')
-fs.appendFileSync('.gitignore','bin/qfpm/')
+fs.appendFileSync('./.gitignore','./bin/qfpm/')
 console.log('[!] finished gitignore append!')
 console.log('[!] starting package.json update!')
 let packJSON = fs.readFileSync('./package.json')
