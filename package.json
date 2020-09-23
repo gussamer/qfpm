@@ -1,25 +1,23 @@
 {
-  "name": "qfpm",
-  "version": "1.0.0",
-  "description": "installs the NPM SFDX Package Dependancy Resolution Proof of Concept scripts",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "salesforce"
-  ],
-  "scripts": {
-    "preinstall": "bash ./bin/preinstall"
-  },
-  "author": "Angus Alves",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gussamer/qfpm.git"
-  },
-  "bugs": {
-    "url": "https://github.com/gussamer/qfpm/issues"
-  },
-  "homepage": "https://github.com/gussamer/qfpm#readme",
+    "name": "qfpm",
+    "version": "1.0.0",
+    "description": "installs the NPM SFDX Package Dependancy Resolution Proof of Concept scripts",
+    "main": "index.js",
+    "keywords": [
+        "salesforce"
+    ],
+    "scripts": {
+        "preinstall": "bash ./bin/preinstall",
+        "postinstall": "bash ./bin/postinstall"
+    },
+    "author": "Angus Alves",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gussamer/qfpm.git"
+    },
+    "bugs": {
+        "url": "https://github.com/gussamer/qfpm/issues"
+    },
+    "homepage": "https://github.com/gussamer/qfpm#readme"
 }

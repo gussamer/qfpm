@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export DXPM_SETUP_PACKAGE_NAME="$($PWD/bin/getprojectname)"
+export DXPM_SETUP_PACKAGE_NAME="$($PWD/bin/qfpm/getprojectname)"
 export DXPM_CURRENT_PACKAGE_NAME="$DXPM_SETUP_PACKAGE_NAME"
 echo "[+] checking if $DXPM_SETUP_PACKAGE_NAME scrach org exists or creating it"
 $PWD/bin/isscratched || $PWD/bin/scratch && wait

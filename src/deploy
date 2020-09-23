@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 DXPM_SETUP_PACKAGE_NAME="$1"
 if [ "$DXPM_SETUP_PACKAGE_NAME" = "" ]; then
-  DXPM_SETUP_PACKAGE_NAME="$($PWD/bin/getprojectname)"
+  DXPM_SETUP_PACKAGE_NAME="$($PWD/bin/qfpm/getprojectname)"
 fi
 DXPM_CURRENT_PACKAGE_NAME="$2"
 if [ "$DXPM_CURRENT_PACKAGE_NAME" = "" ]; then

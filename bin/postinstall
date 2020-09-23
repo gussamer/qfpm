@@ -1,10 +1,52 @@
+#!/usr/bin/env node
+'use strict'
+/*
 #!/usr/bin/env bash
 # check if bin exists
-mkdir bin
+# mkdir bin
 # check if qfpm exists
-mkdir bin/qfpm
+# mkdir bin/qfpm
 # copy scripts
-cp node_modules/qfpm/src/* bin/qfpm/*
-echo "bin/qfpm/" >> .gitignore
+# cp node_modules/qfpm/src/* bin/qfpm/*
+# echo "bin/qfpm/" >> .gitignore
 # update package.json with scripts
-
+*/
+console.log('[!] installing qfpm!')
+const fs = require('fs')
+const binExists = fs.existsSync('bin')
+if(!binExists){
+    fs.mkdirSync('bin')
+}
+const qfpmAlreadyExists = fs.existsSync('bin/qfpm')
+if(!qfpmAlreadyExists){
+    fs.mkdirSync('bin/qfpm')
+}
+console.log('[!] starting script copy!')
+let scriptNames = []
+fs.readdirSync('node_modules/qfpm/src').forEach(script => {
+    fs.copyFileSync('node_modules/qfpm/src/'+script,'bin/qfpm/'+script);
+    scriptNames.push(script)
+})
+console.log('[!] finished script copy!')
+console.log('[!] starting old script removal!')
+fs.readdirSync('bin/qfpm').forEach((script) => {
+    if(scriptNames.indexOf(script)==-1){
+        fs.unlinkSync('bin/qfpm/'+script)
+    }
+})
+console.log('[!] finished old script removal!')
+console.log('[!] starting gitignore append!')
+fs.appendFileSync('.gitignore','bin/qfpm/')
+console.log('[!] finished gitignore append!')
+console.log('[!] starting package.json update!')
+let packJSON = fs.readFileSync('./package.json')
+let pack = JSON.parse(packJSON)
+if(!pack.scripts){
+    pack.scripts = {}
+}
+scriptNames.forEach(script => {
+    pack.scripts[script] = 'bash ./bin/qfpm/'+script
+})
+fs.writeFileSync('./package.json',JSON.stringify(pack,null,4))
+console.log('[!] finished package.json update!')
+console.log('[!] finished installing qfpm!')
