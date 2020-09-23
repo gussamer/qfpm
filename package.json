@@ -1,6 +1,6 @@
 {
     "name": "qfpm",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "installs the NPM SFDX Package Dependancy Resolution Proof of Concept scripts",
     "main": "index.js",
     "keywords": [
@@ -8,7 +8,7 @@
     ],
     "scripts": {
         "preinstall": "bash ./bin/preinstall",
-        "postinstall": "bash ./bin/postinstall"
+        "postinstall": "node ./bin/postinstall"
     },
     "author": "Angus Alves",
     "license": "ISC",
