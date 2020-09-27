@@ -16,6 +16,12 @@
 
 ## Use
 
+### Example
+
+[Click here to see example using fflib sample with multiple dependancy layers](https://github.com/gussamer/fflib-apex-common-samplecode)
+
+### Commands
+
 1. Setup current project for development
 
     - setups up a scratch org
