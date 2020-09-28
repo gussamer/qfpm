@@ -4,7 +4,10 @@
     "description": "installs the NPM SFDX Package Dependancy Resolution Proof of Concept scripts",
     "main": "index.js",
     "keywords": [
-        "salesforce"
+        "salesforce",
+        "package",
+        "manager",
+        "sfdx"
     ],
     "scripts": {
         "preinstall": "bash ./bin/preinstall",
