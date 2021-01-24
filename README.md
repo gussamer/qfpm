@@ -17,18 +17,20 @@
     ```bash
     cd newsfdxproject
     ```
-1. Install the qfpm tools with
+1. Install the qfpm tools with*
     ```bash
-    npm i qfpm --save
+    npm install qfpm --save --only=prod
     ```
-1. Optionally install fflib with
+1. Optionally install fflib with*
     ```bash
-    npm install npm-fflib-common --save
+    npm install npm-fflib-common --save --only=prod
     ```
 1. Run setup to create scratch org and deploy dependancies
     ```bash
     npm run setup
     ```
+
+ * qfpm has not external dependancies all warnings are due to packages salesforce uses 
 
 ## Use
 
