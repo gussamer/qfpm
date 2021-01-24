@@ -30,7 +30,7 @@
     npm run setup
     ```
 
- * qfpm has not external dependancies all warnings are due to packages salesforce uses 
+ \* qfpm has no external dependancies all warnings are due to packages salesforce uses 
 
 ## Use
 
