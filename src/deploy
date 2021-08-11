@@ -9,5 +9,5 @@ if [ "$DXPM_CURRENT_PACKAGE_NAME" = "" ]; then
 fi
 echo "[+] deploying $DXPM_CURRENT_PACKAGE_NAME metadata to scratch org $DXPM_SETUP_PACKAGE_NAME"
 #todo: read package.json for all folder locations
-sfdx force:source:deploy -p $PWD/force-app -w 10 -u "$DXPM_SETUP_PACKAGE_NAME" && wait
+sfdx force:source:deploy -p "$($PWD/bin/qfpm/getsrcfolders)" -w 10 -u "$DXPM_SETUP_PACKAGE_NAME" && wait
 echo "[+] finished deploying $DXPM_CURRENT_PACKAGE_NAME metadata to scratch org $DXPM_SETUP_PACKAGE_NAME"
