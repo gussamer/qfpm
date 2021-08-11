@@ -8,7 +8,6 @@ echo "[!] preinstall DXPM_CURRENT_PACKAGE_NAME: $DXPM_CURRENT_PACKAGE_NAME"
 echo "[+] begin install of $DXPM_CURRENT_PACKAGE_NAME"
 if [ "$DXPM_SETUP_PACKAGE_NAME" = "$DXPM_CURRENT_PACKAGE_NAME" ]; then
   echo "[+] removing dependancies for $DXPM_CURRENT_PACKAGE_NAME to force reinstall"
-  #todo: make this more better
-  #rm -fr $PWD/node_modules/*
+  $PWD/bin/qfpm/removedepends
   echo "[+] finished removing dependancies for $DXPM_CURRENT_PACKAGE_NAME"
 fi
