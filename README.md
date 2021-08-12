@@ -21,22 +21,65 @@
     ```bash
     npm install qfpm --save --only=prod
     ```
-1. Optionally install fflib with*
-    ```bash
-    npm install npm-fflib-common --save --only=prod
-    ```
 1. Run setup to create scratch org and deploy dependancies
     ```bash
     npm run setup
     ```
 
- \* qfpm has no external dependancies all warnings are due to packages salesforce uses 
+ \* qfpm has no external dependancies all warnings are due to packages salesforce uses in their default project package.json
 
 ## Use
 
 ### Example
 
-[Click here to see example using fflib sample with multiple dependancy layers](https://github.com/gussamer/fflib-apex-common-samplecode)
+#### Setup FFLIB commons sample code with dependancies
+
+1. Navigate to the [fflib sample code](https://github.com/apex-enterprise-patterns/fflib-apex-common-samplecode)
+1. Clone the repo locally
+    ```bash
+    git clone https://github.com/apex-enterprise-patterns/fflib-apex-common-samplecode.git
+    ```
+1. cd into repo
+    ```bash
+    cd fflib-apex-common-samplecode
+    ```
+1. init npm and hit enter through all questions
+    ```bash
+    npm init
+    ```
+1. install the qfpm tools
+    ```bash
+    npm install --save qfpm
+    ```
+1. install the the fflib commons
+    ```bash
+    npm install --save npm-fflib-common
+    ```
+
+
+#### Setup AT4DX sample code with dependancies
+
+1. Navigate to the [at4dx sample code](https://github.com/apex-enterprise-patterns/at4dx-samplecode)
+1. Clone the repo locally
+    ```bash
+    git clone https://github.com/apex-enterprise-patterns/at4dx-samplecode.git
+    ```
+1. cd into repo
+    ```bash
+    cd at4dx-samplecode
+    ```
+1. init npm and hit enter through all questions
+    ```bash
+    npm init
+    ```
+1. install the qfpm tools
+    ```bash
+    npm install --save qfpm
+    ```
+1. install the the fflib commons
+    ```bash
+    npm install --save npm-at4dx
+    ```
 
 ### Commands
 
