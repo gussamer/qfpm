@@ -55,6 +55,10 @@
     ```bash
     npm install --save npm-fflib-common
     ```
+1. setup scratch org and install all
+    ```bash
+    npm run setup
+    ```
 
 
 #### Setup AT4DX sample code with dependancies
@@ -79,6 +83,10 @@
 1. install the the fflib commons
     ```bash
     npm install --save npm-at4dx
+    ```
+1. setup scratch org and install all
+    ```bash
+    npm run setup
     ```
 
 ### Commands
