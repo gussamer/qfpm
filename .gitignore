@@ -1,2 +1,4 @@
 package-lock.json
-node_modulesbin/qfpm/bin/qfpm/bin/qfpm/bin/qfpm/
+node_modules
+
+bin/qfpm/

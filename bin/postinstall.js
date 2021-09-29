@@ -14,13 +14,20 @@ if(!qfpmAlreadyExists){
 }
 console.log('[!] starting script copy!')
 let scriptNames = []
+let scripts = []
 fs.readdirSync('./src').forEach(script => {
     fs.copyFileSync('./src/'+script,path.resolve(qfPath,script))
     scriptNames.push(script)
+    scripts.push({
+        name: script
+        ,path: path.resolve(qfPath,script)
+        ,run: script.slice(0,script.lastIndexOf('.'))
+        ,ext: script.slice(script.lastIndexOf('.')+1)
+    })
 })
 console.log('[!] finished script copy!')
 console.log('[!] starting old script removal!')
-fs.readdirSync(qfPath).forEach((script) => {
+fs.readdirSync(qfPath).forEach(script => {
     if(scriptNames.indexOf(script)==-1){
         fs.unlinkSync(path.resolve(qfPath,script))
     }
@@ -43,8 +50,12 @@ let pack = JSON.parse(packJSON)
 if(!pack.scripts){
     pack.scripts = {}
 }
-scriptNames.forEach(script => {
-    pack.scripts[script] = 'bash ./bin/qfpm/'+script
+let extensionMap = {
+    sh: 'bash'
+    ,js: 'node'
+}
+scripts.forEach(script => {
+    pack.scripts[script.run] = extensionMap[script.ext]+' ./bin/qfpm/'+script.name
 })
 fs.writeFileSync(path.resolve(installPath,'package.json'),JSON.stringify(pack,null,4))
 console.log('[!] finished package.json update!')

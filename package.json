@@ -1,6 +1,6 @@
 {
     "name": "qfpm",
-    "version": "1.0.20",
+    "version": "1.0.21",
     "description": "installs the NPM SFDX Package Dependancy Resolution Proof of Concept scripts",
     "main": "index.js",
     "keywords": [
@@ -10,7 +10,7 @@
         "sfdx"
     ],
     "scripts": {
-        "preinstall": "bash ./bin/preinstall",
+        "preinstall": "bash ./bin/preinstall.sh",
         "postinstall": "node ./bin/postinstall.js"
     },
     "author": "Angus Alves",
@@ -22,5 +22,9 @@
     "bugs": {
         "url": "https://github.com/gussamer/qfpm/issues"
     },
-    "homepage": "https://github.com/gussamer/qfpm#readme"
+    "homepage": "https://github.com/gussamer/qfpm#readme",
+    "bin": {
+        "poinstall": "./bin/postinstall.js",
+        "prinstall": "./bin/preinstall.sh"
+    }
 }
