@@ -22,9 +22,5 @@
     "bugs": {
         "url": "https://github.com/gussamer/qfpm/issues"
     },
-    "homepage": "https://github.com/gussamer/qfpm#readme",
-    "bin": {
-        "poinstall": "./bin/postinstall.js",
-        "prinstall": "./bin/preinstall.sh"
-    }
+    "homepage": "https://github.com/gussamer/qfpm#readme"
 }

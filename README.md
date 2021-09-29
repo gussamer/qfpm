@@ -19,7 +19,7 @@
     ```
 1. Install the qfpm tools with*
     ```bash
-    npm install --save qfpm
+    npm install qfpm --save --only=prod
     ```
 1. Run setup to create scratch org and deploy dependancies
     ```bash
