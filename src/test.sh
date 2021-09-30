@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 DXPM_SETUP_PACKAGE_NAME="$1"
 if [ "$DXPM_SETUP_PACKAGE_NAME" = "" ]; then
-  DXPM_SETUP_PACKAGE_NAME="$(node $PWD/bin/qfpm/getprojectname.js)"
+  DXPM_SETUP_PACKAGE_NAME="$($PWD/node_modules/.bin/qgetprojectname)"
 fi
 echo "[+] running tests for $DXPM_SETUP_PACKAGE_NAME"
 sfdx force:apex:test:run -l RunLocalTests -d ./test_results -r json -w 10 -u "$DXPM_SETUP_PACKAGE_NAME" && wait

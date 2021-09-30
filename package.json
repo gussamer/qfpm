@@ -1,6 +1,6 @@
 {
     "name": "qfpm",
-    "version": "1.0.22",
+    "version": "1.0.23",
     "description": "installs the NPM SFDX Package Dependancy Resolution Proof of Concept scripts",
     "main": "index.js",
     "keywords": [
@@ -24,19 +24,19 @@
     },
     "homepage": "https://github.com/gussamer/qfpm#readme",
     "bin":{
-        "build": "./src/build.sh",
-        "clean": "./src/clean.sh",
-        "deploy": "./src/deploy.sh",
-        "getprojectname": "./src/getprojectname.js",
-        "getsrcfolders": "./src/getsrcfolders.js",
-        "isqfpm": "./src/isqfpm.js",
-        "isscratched": "./src/isscratched.js",
-        "postinstall": "./src/postinstall.sh",
-        "preinstall": "./src/preinstall.sh",
-        "push": "./src/push.sh",
-        "removedepends": "./src/removedepends.sh",
-        "scratch": "./src/scratch.sh",
-        "setup": "./src/setup.sh",
-        "test": "./src/test.sh"
+        "qbuild": "./src/build.sh",
+        "qclean": "./src/clean.sh",
+        "qdeploy": "./src/deploy.sh",
+        "qgetprojectname": "./src/getprojectname.js",
+        "qgetsrcfolders": "./src/getsrcfolders.js",
+        "qisqfpm": "./src/isqfpm.js",
+        "qisscratched": "./src/isscratched.js",
+        "qpostinstall": "./src/postinstall.sh",
+        "qpreinstall": "./src/preinstall.sh",
+        "qpush": "./src/push.sh",
+        "qremovedepends": "./src/removedepends.sh",
+        "qscratch": "./src/scratch.sh",
+        "qsetup": "./src/setup.sh",
+        "qtest": "./src/test.sh"
     }
 }
