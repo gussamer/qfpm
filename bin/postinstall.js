@@ -2,6 +2,7 @@ console.log('[!] installing qfpm!')
 const fs = require('fs')
 const path = require('path')
 const installPath = process.env.INIT_CWD
+console.log(JSON.stringify(process.env))
 const binPath = path.resolve(installPath,'bin')
 const qfPath = path.resolve(binPath,'qfpm')
 console.log('[!] checking if old scripts exist!')
