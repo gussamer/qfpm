@@ -15,7 +15,7 @@ console.log('[!] building script path list!')
 let scriptNames = []
 let scripts = []
 fs.readdirSync('./src').forEach(script => {
-    fs.copyFileSync('./src/'+script,path.resolve(qfPath,script))
+    //fs.copyFileSync('./src/'+script,path.resolve(qfPath,script))
     scriptNames.push(script)
     scripts.push({
         name: script.slice(0,script.lastIndexOf('.'))
