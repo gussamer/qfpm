@@ -5,17 +5,10 @@ const installPath = process.env.INIT_CWD
 console.log(JSON.stringify(process.env))
 const binPath = path.resolve(installPath,'bin')
 const qfPath = path.resolve(binPath,'qfpm')
-console.log('[!] checking if old scripts exist!')
-const qfpmAlreadyExists = fs.existsSync(qfPath)
-if(!qfpmAlreadyExists){
-    console.log('[!] starting old script removal!')
-    fs.unlinkSync(qfPath)
-}
 console.log('[!] building script path list!')
 let scriptNames = []
 let scripts = []
 fs.readdirSync('./src').forEach(script => {
-    //fs.copyFileSync('./src/'+script,path.resolve(qfPath,script))
     scriptNames.push(script)
     scripts.push({
         name: script.slice(0,script.lastIndexOf('.'))
