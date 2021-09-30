@@ -24,19 +24,19 @@
     },
     "homepage": "https://github.com/gussamer/qfpm#readme",
     "bin":{
-        "build": "./bin/qfpm/build.sh",
-        "clean": "./bin/qfpm/clean.sh",
-        "deploy": "./bin/qfpm/deploy.sh",
-        "getprojectname": "./bin/qfpm/getprojectname.js",
-        "getsrcfolders": "./bin/qfpm/getsrcfolders.js",
-        "isqfpm": "./bin/qfpm/isqfpm.js",
-        "isscratched": "./bin/qfpm/isscratched.js",
-        "postinstall": "./bin/qfpm/postinstall.sh",
-        "preinstall": "./bin/qfpm/preinstall.sh",
-        "push": "./bin/qfpm/push.sh",
-        "removedepends": "./bin/qfpm/removedepends.sh",
-        "scratch": "./bin/qfpm/scratch.sh",
-        "setup": "./bin/qfpm/setup.sh",
-        "test": "./bin/qfpm/test.sh"
+        "build": "./src/build.sh",
+        "clean": "./src/clean.sh",
+        "deploy": "./src/deploy.sh",
+        "getprojectname": "./src/getprojectname.js",
+        "getsrcfolders": "./src/getsrcfolders.js",
+        "isqfpm": "./src/isqfpm.js",
+        "isscratched": "./src/isscratched.js",
+        "postinstall": "./src/postinstall.sh",
+        "preinstall": "./src/preinstall.sh",
+        "push": "./src/push.sh",
+        "removedepends": "./src/removedepends.sh",
+        "scratch": "./src/scratch.sh",
+        "setup": "./src/setup.sh",
+        "test": "./src/test.sh"
     }
 }
