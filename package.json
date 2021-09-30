@@ -22,5 +22,21 @@
     "bugs": {
         "url": "https://github.com/gussamer/qfpm/issues"
     },
-    "homepage": "https://github.com/gussamer/qfpm#readme"
+    "homepage": "https://github.com/gussamer/qfpm#readme",
+    "bin":{
+        "build": "bash ./bin/qfpm/build.sh",
+        "clean": "bash ./bin/qfpm/clean.sh",
+        "deploy": "bash ./bin/qfpm/deploy.sh",
+        "getprojectname": "node ./bin/qfpm/getprojectname.js",
+        "getsrcfolders": "node ./bin/qfpm/getsrcfolders.js",
+        "isqfpm": "node ./bin/qfpm/isqfpm.js",
+        "isscratched": "node ./bin/qfpm/isscratched.js",
+        "postinstall": "bash ./bin/qfpm/postinstall.sh",
+        "preinstall": "bash ./bin/qfpm/preinstall.sh",
+        "push": "bash ./bin/qfpm/push.sh",
+        "removedepends": "bash ./bin/qfpm/removedepends.sh",
+        "scratch": "bash ./bin/qfpm/scratch.sh",
+        "setup": "bash ./bin/qfpm/setup.sh",
+        "test": "bash ./bin/qfpm/test.sh"
+    }
 }
