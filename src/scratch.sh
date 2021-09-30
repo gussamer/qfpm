@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 DXPM_SETUP_PACKAGE_NAME="$1"
 if [ "$DXPM_SETUP_PACKAGE_NAME" = "" ]; then
-  DXPM_SETUP_PACKAGE_NAME="$($PWD/bin/qfpm/getprojectname)"
+  DXPM_SETUP_PACKAGE_NAME="$(node $PWD/bin/qfpm/getprojectname.js)"
 fi
 echo "[+] setting up scratch org $DXPM_SETUP_PACKAGE_NAME"
 sfdx force:org:create -f $PWD/config/project-scratch-def.json -a "$DXPM_SETUP_PACKAGE_NAME" -d 1 -w 5 && wait
