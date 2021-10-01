@@ -23,7 +23,7 @@ if(!pack.scripts){
     pack.scripts = {}
 }
 scripts.forEach(script => {
-    pack.scripts[script.name] = 'node_modules/.bin/'+script.run
+    pack.scripts[script.name] = script.run
 })
 fs.writeFileSync(path.resolve(installPath,'package.json'),JSON.stringify(pack,null,4))
 console.log('[!] finished package.json update!')
