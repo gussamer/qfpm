@@ -5,6 +5,14 @@
 ### Installs the NPM SFDX Package Dependancy Resolution Proof of Concept scripts
 ======================================
 
+## Updates
+
+- The removal of the bin/qfpm script dependancy complete, automated removal doesn't seem to work so feel free to delete them after upgrading
+
+- Conversion to using native npm bin definition seems stable and opens up better linux support
+
+- WSL support seems to be working though with a big salesforce asterisk down in the AT4DX example
+
 ## Install
 
 1. Open Git Bash on Windows
@@ -80,14 +88,16 @@
     ```bash
     npm install --save qfpm
     ```
-1. install the the fflib commons
+1. install the at4dx libraries
     ```bash
     npm install --save npm-at4dx
     ```
-1. setup scratch org and install all
+1. setup scratch org and install all*
     ```bash
     npm run setup
     ```
+
+*sfdx on WSL(maybe linux in general) seems to have an issue with the README.md inside the sfdx source dirs so I moved them in the npm package
 
 ### Commands
 
