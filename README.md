@@ -97,7 +97,11 @@
     npm run setup
     ```
 
-*sfdx on WSL(maybe linux in general) seems to have an issue with the README.md inside the sfdx source dirs so I moved them in the npm package
+*sfdx on WSL(maybe linux in general) seems to have an issue with the README.md inside the sfdx source dirs so I moved them in the npm package. You can run this command after cloning to delete all the offending README.md files in this repo as a work around.
+
+  ```bash
+  for x in $(find ./sfdx-source/ -name README.md); do rm -f $x; done
+  ```
 
 ### Commands
 
