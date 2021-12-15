@@ -2,8 +2,9 @@
 
 ## QRFDev Package Manager
 
-### Installs the NPM SFDX Package Dependancy Resolution Proof of Concept scripts
-======================================
+### A blend of NPM and SFDX into a Salesforce package dependancy management tool set
+
+The package mangement methodology intended with qfpm is meant to aid with the dependancy management side of salesforce packages. Currently this could be implmented with a private npm service to benefit from the npm dependancy resolution applied to a teams salesforce metadata libraries as they are broken down into packages with a dependancy hierarchy. QFPM could be extended to support the management of sfdx package2 building and installation with dependencies, as well converted to sfdx plugin, if I ever get around to doing it.  
 
 ## Updates
 
@@ -42,6 +43,8 @@
 
 #### Setup FFLIB commons sample code with dependancies
 
+This example demonstates facilitating two layers of dependancies required to get started with the fflib apex common sample code library. The sample code requries the fflib apex commons library which intern is dependant on the fflib apex mocks library. With example npm packages for both the commons and mocks published publicly to npm, qfpm is able to install all dependancies via soap to avoid source tracking and then push the sample code for work tracked in the scratch org. 
+
 1. Navigate to the [fflib sample code](https://github.com/apex-enterprise-patterns/fflib-apex-common-samplecode)
 1. Clone the repo locally
     ```bash
@@ -71,6 +74,8 @@
 
 #### Setup AT4DX sample code with dependancies
 
+This example expands on the previous fflib sample code to satisfy the requirments of the at4dx sample code. As before the multi layered fflib commons and mocks are required by the at4dx requirement which also has a parallel dependancy of force-di. All of which are installed via soap into a scratch org with the at4dx sample code pushed for tracking.
+
 1. Navigate to the [at4dx sample code](https://github.com/apex-enterprise-patterns/at4dx-samplecode)
 1. Clone the repo locally
     ```bash
@@ -97,7 +102,7 @@
     npm run setup
     ```
 
-*sfdx on WSL(maybe linux in general) seems to have an issue with the README.md inside the sfdx source dirs so I moved them in the npm package. You can run this command after cloning to delete all the offending README.md files in this repo as a work around.
+*sfdx on WSL(maybe linux in general) seems to have an issue thinking the README.md inside the sfdx source dirs is a custom metadata type, so I removed them in the npm package as they just said put stuff here. You can run this command after cloning to delete all the offending README.md files in this repo as a work around.
 
   ```bash
   for x in $(find ./sfdx-source/ -name README.md); do rm -f $x; done
