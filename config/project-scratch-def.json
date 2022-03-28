@@ -1,0 +1,10 @@
+{
+    "orgName": "qfpmtest",
+    "edition": "Developer",
+    "features": ["API","DebugApex","AuthorApex"],
+    "settings": {
+        "lightningExperienceSettings": {
+            "enableS1DesktopEnabled": true
+        }
+    }
+}
