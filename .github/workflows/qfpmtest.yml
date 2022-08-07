@@ -25,9 +25,12 @@ jobs:
       #- run: sfdx force:apex:test:run -w 5
       #git clone fflib sample
       - name: Clone FFLIB Sample Code
-        run: git clone https://github.com/gussamer/fflib-apex-common-samplecode.git
-      - name: Install Depends
+        run: git clone https://github.com/apex-enterprise-patterns/fflib-apex-common-samplecode.git
+      - name: Install QFPM
         run: npm install qfpm --save
+        working-directory: ./fflib-apex-common-samplecode
+      - name: Install NPM-FFLIB-COMMON
+        run: npm install npm-fflib-common --save
         working-directory: ./fflib-apex-common-samplecode
       - name: Setup Devlopment Env
         run: npm run setup
