@@ -24,13 +24,18 @@ jobs:
       #- run: sfdx force:source:push
       #- run: sfdx force:apex:test:run -w 5
       #git clone fflib sample
-      - run: git clone https://github.com/gussamer/fflib-apex-common-samplecode.git
-      - run: cd fflib-apex-common-samplecode
+      - name: Clone FFLIB Sample Code
+        run: git clone https://github.com/gussamer/fflib-apex-common-samplecode.git
+      - name: Move Into FFLIB Dir
+        run: cd fflib-apex-common-samplecode
+        shell: {0}
       - run: echo $PWD
       - run: ls -lha
-      - run: npm run setup
+      - name: Setup Devlopment Env
+        run: npm run setup
       #run test
-      - run: npm run test
+      - name: Run Tests
+        run: npm run test
       - name: Destroy scratch org
         #run: sfdx force:org:delete -p
         run: npm run clean
