@@ -27,6 +27,7 @@ jobs:
       - run: git clone https://github.com/gussamer/fflib-apex-common-samplecode.git
       - run: cd fflib-apex-common-samplecode
       - run: echo $PWD
+      - run: ls -lha
       - run: npm run setup
       #run test
       - run: npm run test
