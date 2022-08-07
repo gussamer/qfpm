@@ -27,8 +27,8 @@ jobs:
       - name: Clone FFLIB Sample Code
         run: git clone https://github.com/gussamer/fflib-apex-common-samplecode.git
       - name: Move Into FFLIB Dir
-        run: cd fflib-apex-common-samplecode
-        shell: "{0}"
+        run: fflib-apex-common-samplecode
+        shell: "cd {0}"
       - run: echo $PWD
       - run: ls -lha
       - name: Setup Devlopment Env
