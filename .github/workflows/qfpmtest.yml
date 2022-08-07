@@ -11,28 +11,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2 #Check out this repo
+    - uses: actions/checkout@v2 #Check out this repo
         with:
           ref: ${{github.event.pull_request.head.ref}}
           repository: ${{github.event.pull_request.head.repo.full_name}}
-      - name: Install SFDX CLI and authorize DevHub
+    - name: Install SFDX CLI and authorize DevHub
         uses: apex-enterprise-patterns/setup-sfdx@v1 #We're using a fork of https://github.com/sfdx-actions/setup-sfdx for safety
         with:
           sfdx-auth-url: ${{ secrets.DEVHUB_SFDXURL }}
-      - run: sfdx force:config:set defaultdevhubusername=SFDX-ENV -g #Even though the setup-sfdx action uses --setdefaultdevhubusername, it doesn't seem to stick since it uses --setdefaultusername so we brute force it here
-      #- run: sfdx force:org:create -f ./config/project-scratch-def.json --setdefaultusername -d 1
-      #- run: sfdx force:source:push
-      #- run: sfdx force:apex:test:run -w 5
-      #git clone fflib sample
-      - name: Clone Sample Code
-        run: git clone https://github.com/gussamer/fflib-apex-common-samplecode.git
-        run: cd fflib-apex-common-samplecode
-      - name: Setup Development Environment
-        run: npm run setup
-      #run test
-      - name: Run All Tests
-        run: npm run test
-      - name: Destroy scratch org
+        - run: sfdx force:config:set defaultdevhubusername=SFDX-ENV -g #Even though the setup-sfdx action uses --setdefaultdevhubusername, it doesn't seem to stick since it uses --setdefaultusername so we brute force it here
+        #- run: sfdx force:org:create -f ./config/project-scratch-def.json --setdefaultusername -d 1
+        #- run: sfdx force:source:push
+        #- run: sfdx force:apex:test:run -w 5
+    #git clone fflib sample
+    - name: Clone Sample Code
+        - run: git clone https://github.com/gussamer/fflib-apex-common-samplecode.git
+        - run: cd fflib-apex-common-samplecode
+    - name: Setup Development Environment
+        - run: npm run setup
+    #run test
+    - name: Run All Tests
+        - run: npm run test
+    - name: Destroy scratch org
         #run: sfdx force:org:delete -p
-        run: npm run clean
+        - run: npm run clean
         if: always()
