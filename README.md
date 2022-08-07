@@ -59,9 +59,9 @@ This example demonstates facilitating two layers of dependancies required to get
     ```bash
     cd fflib-apex-common-samplecode
     ```
-1. init npm and hit enter through all questions
+1. init npm to create package.json
     ```bash
-    npm init
+    npm init -y
     ```
 1. install the qfpm tools
     ```bash
@@ -90,9 +90,9 @@ This example expands on the previous fflib sample code to satisfy the requirment
     ```bash
     cd at4dx-samplecode
     ```
-1. init npm and hit enter through all questions
+1. init npm to create package.json
     ```bash
-    npm init
+    npm init -y
     ```
 1. install the qfpm tools
     ```bash
