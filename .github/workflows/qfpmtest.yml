@@ -26,6 +26,8 @@ jobs:
       #git clone fflib sample
       - name: Clone FFLIB Sample Code
         run: git clone https://github.com/apex-enterprise-patterns/fflib-apex-common-samplecode.git
+      - name: Setup Package.json
+        run: npm init -y
       - name: Install QFPM
         run: npm install qfpm --save
         working-directory: ./fflib-apex-common-samplecode
