@@ -13,6 +13,8 @@ The package mangement methodology intended with qfpm is meant to aid with the de
 
 ## Updates
 
+- Updated the commands for the new sf structure
+
 - The removal of the bin/qfpm script dependancy complete, automated removal doesn't seem to work so feel free to delete them after upgrading
 
 - Conversion to using native npm bin definition seems stable and opens up better linux support
@@ -25,7 +27,7 @@ The package mangement methodology intended with qfpm is meant to aid with the de
 1. Navigate to folder you want your project
 1. Create a SFDX project with
     ```bash
-    sfdx force:project:create -n newsfdxproject
+    sf force project create -n newsfdxproject
     ```
 1. Move into the project folder with
     ```bash
@@ -40,7 +42,7 @@ The package mangement methodology intended with qfpm is meant to aid with the de
     npm run setup
     ```
 
- \* qfpm has no external dependancies all warnings are due to packages salesforce uses in their default project package.json
+ \* all warnings are due to packages salesforce uses in their default project package.json
 
 ## Use
 
