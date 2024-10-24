@@ -9,5 +9,5 @@ fi
 folders="$(find $DXPM_NODE_MOD/ -name sfdx-project.json)"
 folders="$(echo $folders | sed 's/\/sfdx-project.json//g')"
 for val in $folders; do
-    rm -fr $val
+  $DXPM_NODE_MOD/.bin/qisqfpm "$val" && rm -fr $val
 done

@@ -6,7 +6,7 @@ export DXPM_CURRENT_PACKAGE_NAME="$DXPM_SETUP_PACKAGE_NAME"
 echo "[+] checking if $DXPM_SETUP_PACKAGE_NAME scrach org exists or creating it"
 $DXPM_NODE_MOD/.bin/qisscratched || $DXPM_NODE_MOD/.bin/qscratch && wait
 echo "[+] installing package $DXPM_SETUP_PACKAGE_NAME"
-npm install --only=prod && wait
+npm install --omit=dev && wait
 echo "[+] finished installing package $DXPM_SETUP_PACKAGE_NAME"
 export DXPM_CURRENT_PACKAGE_NAME=""
 export DXPM_SETUP_PACKAGE_NAME=""
