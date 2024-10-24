@@ -12,5 +12,5 @@ if [ "$DXPM_SETUP_PACKAGE_NAME" = "" ]; then
   DXPM_SETUP_PACKAGE_NAME="$($DXPM_NODE_MOD/.bin/qgetprojectname)"
 fi
 echo "[+] checking if $DXPM_SETUP_PACKAGE_NAME scrach org exists and deleting it"
-$DXPM_NODE_MOD/.bin/qisscratched && sfdx force:org:delete -u "$DXPM_SETUP_PACKAGE_NAME" -p && wait
+$DXPM_NODE_MOD/.bin/qisscratched && sf org delete scratch -o "$DXPM_SETUP_PACKAGE_NAME" -p && wait
 echo "[+] finished cleaning $DXPM_SETUP_PACKAGE_NAME scrach org"
