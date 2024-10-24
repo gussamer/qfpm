@@ -11,8 +11,8 @@ if [ "$DXPM_SETUP_PACKAGE_NAME" = "" ]; then
   DXPM_SETUP_PACKAGE_NAME="$($DXPM_NODE_MOD/.bin/qgetprojectname)"
 fi
 echo "[+] setting up scratch org $DXPM_SETUP_PACKAGE_NAME"
-sfdx force:org:create -f $PWD/config/project-scratch-def.json -a "$DXPM_SETUP_PACKAGE_NAME" -d 1 -w 5 && wait
+sf force org create -f $PWD/config/project-scratch-def.json -a "$DXPM_SETUP_PACKAGE_NAME" -d 1 -w 5 && wait
 echo "[+] finished setting up scratch org $DXPM_SETUP_PACKAGE_NAME"
 echo "[+] setting scratch org $DXPM_SETUP_PACKAGE_NAME as default locally"
-sfdx force:config:set defaultusername=$DXPM_SETUP_PACKAGE_NAME
+sf force config set target-org $DXPM_SETUP_PACKAGE_NAME
 echo "[+] finished setting scratch org $DXPM_SETUP_PACKAGE_NAME as default username locally"
