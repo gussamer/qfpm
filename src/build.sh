@@ -12,5 +12,5 @@ if [ "$DXPM_CURRENT_PACKAGE_NAME" = "" ]; then
   DXPM_CURRENT_PACKAGE_NAME="$($DXPM_NODE_MOD/.bin/qgetprojectname)"
 fi
 echo "[+] converting source for $DXPM_CURRENT_PACKAGE_NAME"
-sf force source convert -d "./manifest" -n "$DXPM_CURRENT_PACKAGE_NAME" -p "$($DXPM_NODE_MOD/.bin/qgetsrcfolders)" && wait
+sf project convert source -x "./manifest" -n "$DXPM_CURRENT_PACKAGE_NAME" -p "$($DXPM_NODE_MOD/.bin/qgetsrcfolders)" && wait
 echo "[+] finished converting source for $DXPM_CURRENT_PACKAGE_NAME"

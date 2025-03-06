@@ -5,7 +5,7 @@ if(process.argv[2]==undefined){
   var pack = JSON.parse(packageJSON)
   scratchName=pack.name
 }else scratchName=process.argv[2]
-var orgsJSON = require('child_process').execSync('sf force org list --json')
+var orgsJSON = require('child_process').execSync('sf org list --json')
 var orgs = JSON.parse(orgsJSON).result
 orgs.scratchOrgs.forEach(org => {
   if(org.alias==scratchName) process.exit()

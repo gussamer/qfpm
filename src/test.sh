@@ -11,5 +11,5 @@ if [ "$DXPM_SETUP_PACKAGE_NAME" = "" ]; then
   DXPM_SETUP_PACKAGE_NAME="$($DXPM_NODE_MOD/.bin/qgetprojectname)"
 fi
 echo "[+] running tests for $DXPM_SETUP_PACKAGE_NAME"
-sf force apex test run -l RunLocalTests -d ./test_results -r json -w 10 -o "$DXPM_SETUP_PACKAGE_NAME" && wait
+sf apex run test -l RunLocalTests -d ./test_results -r json -o "$DXPM_SETUP_PACKAGE_NAME" && wait
 echo "[+] finished running tests for $DXPM_SETUP_PACKAGE_NAME"

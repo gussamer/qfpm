@@ -16,5 +16,6 @@ if [ "$DXPM_CURRENT_PACKAGE_NAME" = "" ]; then
 fi
 echo "[+] deploying $DXPM_CURRENT_PACKAGE_NAME metadata to scratch org $DXPM_SETUP_PACKAGE_NAME"
 #todo: read package.json for all folder locations
-sf force source deploy -p "$($DXPM_NODE_MOD/.bin/qgetsrcfolders)" -w 10 -u "$DXPM_SETUP_PACKAGE_NAME" && wait
+sf project deploy start -o "$DXPM_SETUP_PACKAGE_NAME" && wait
+sf project reset tracking -0 "$DXPM_SETUP_PACKAGE_NAME" && wait
 echo "[+] finished deploying $DXPM_CURRENT_PACKAGE_NAME metadata to scratch org $DXPM_SETUP_PACKAGE_NAME"
