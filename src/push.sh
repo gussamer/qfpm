@@ -11,5 +11,5 @@ if [ "$DXPM_SETUP_PACKAGE_NAME" = "" ]; then
   DXPM_SETUP_PACKAGE_NAME="$($DXPM_NODE_MOD/.bin/qgetprojectname)"
 fi
 echo "[+] pushing source to scratch org $DXPM_SETUP_PACKAGE_NAME"
-sf project deploy start -o "$DXPM_SETUP_PACKAGE_NAME" && wait
+sf project deploy start -o "$DXPM_SETUP_PACKAGE_NAME" --ignore-conflicts && wait
 echo "[+] finished pushing source to scratch org $DXPM_SETUP_PACKAGE_NAME"
