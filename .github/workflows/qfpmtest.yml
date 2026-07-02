@@ -23,27 +23,24 @@ jobs:
         run: sf force config set --global target-dev-hub=SFDX-ENV #Even though the setup-sfdx action uses --setdefaultdevhubusername, it doesn't seem to stick since it uses --setdefaultusername so we brute force it here
       - name: Check Auth Orgs
         run: sf org list --json
-      #git clone fflib sample
       - name: Clone FFLIB Sample Code
-        run: git clone https://github.com/gussamer/fflib-apex-common-samplecode.git
+        run: cd /home/runner/work/qfpm/ && git clone https://github.com/gussamer/fflib-apex-common-samplecode.git
       - name: Setup Package.json
         run: npm init -y
-        working-directory: ./fflib-apex-common-samplecode
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Install QFPM
-        run: npm install qfpm --save
-        working-directory: ./fflib-apex-common-samplecode
+        run: npm install /home/runner/work/qfpm/qfpm
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Install NPM-FFLIB-COMMON
         run: npm install npm-fflib-common --save
-        working-directory: ./fflib-apex-common-samplecode
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Setup Devlopment Env
         run: npm run setup
-        working-directory: ./fflib-apex-common-samplecode
-      #run test
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Run Tests
         run: npm run test
-        working-directory: ./fflib-apex-common-samplecode
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Destroy scratch org
-        #run: sf force apex test run
         run: npm run clean
-        working-directory: ./fflib-apex-common-samplecode
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
         if: always()
