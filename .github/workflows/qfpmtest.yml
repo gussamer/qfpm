@@ -29,7 +29,7 @@ jobs:
         run: npm init -y
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Install QFPM
-        run: npm install /home/runner/work/qfpm/qfpm
+        run: npm install /home/runner/work/qfpm/qfpm --save
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Install NPM-FFLIB-COMMON
         run: npm install npm-fflib-common --save
