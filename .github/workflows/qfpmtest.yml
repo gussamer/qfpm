@@ -11,10 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v7 #Check out this repo
+      - uses: actions/checkout@v7 #Check out this repo 
         with:
           ref: ${{github.event.pull_request.head.ref}}
-          repository: ${{github.event.pull_request.head.repo.full_name}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}     
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          package-manager-cache: false # Disable automatic npm caching if not required
       - name: Install SFDX CLI and authorize DevHub
         uses: gussamer/setup-sfdx@v2.0.1 #We're using a fork of https://github.com/sfdx-actions/setup-sfdx for safety
         with:
@@ -41,6 +45,8 @@ jobs:
       - name: Setup Devlopment Env
         run: npm run setup
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
+      - name: Check Auth Orgs Again
+        run: sf org list --json
       - name: Run Tests
         run: npm run test
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
