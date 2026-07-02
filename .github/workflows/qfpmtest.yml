@@ -19,10 +19,10 @@ jobs:
         uses: gussamer/setup-sfdx@v2 #We're using a fork of https://github.com/sfdx-actions/setup-sfdx for safety
         with:
           sfdx-auth-url: ${{ secrets.DEVHUB_SFDXURL }}
-      - run: sf force config set target-dev SFDX-ENV -g #Even though the setup-sfdx action uses --setdefaultdevhubusername, it doesn't seem to stick since it uses --setdefaultusername so we brute force it here
-      #- run: sf force org create -f ./config/project-scratch-def.json --setdefaultusername -d 1
-      #- run: sf force source push
-      #- run: sf force apex test run -w 5
+      - name: Set Default Devhub
+        run: sf force config set --global target-dev-hub=SFDX-ENV #Even though the setup-sfdx action uses --setdefaultdevhubusername, it doesn't seem to stick since it uses --setdefaultusername so we brute force it here
+      - name: Check Auth Orgs
+        run: sf org list --json
       #git clone fflib sample
       - name: Clone FFLIB Sample Code
         run: git clone https://github.com/gussamer/fflib-apex-common-samplecode.git
