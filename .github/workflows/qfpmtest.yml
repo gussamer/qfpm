@@ -3,7 +3,6 @@ name: Test QFPM Funtionality
 on:
   push:
   pull_request_target:
-  workflow_dispatch:
 
 jobs:
   build:
