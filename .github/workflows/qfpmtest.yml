@@ -34,6 +34,9 @@ jobs:
       - name: Install NPM-FFLIB-COMMON
         run: npm install npm-fflib-common --save
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
+      - name: Display node modules
+        run: ls -la node_modules
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Setup Devlopment Env
         run: npm run setup
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
