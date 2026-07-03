@@ -39,7 +39,7 @@ jobs:
         run: npm pack --pack-destination ~/
         working-directory: /home/runner/work/qfpm/qfpm
       - name: Install QFPM
-        run: npm install /home/runner/work/qfpm/qfpm/local-package-1.0.0.tgz --save
+        run: npm install /home/runner/work/qfpm/qfpm/qfpm-1.1.3.tgz --save
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Install NPM-FFLIB-COMMON
         run: npm install npm-fflib-common --save
