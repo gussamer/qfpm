@@ -38,10 +38,10 @@ jobs:
         run: npm pack --pack-destination . && ls -la
         working-directory: /home/runner/work/qfpm/qfpm
       - name: Install QFPM
-        run: npm install /home/runner/work/qfpm/qfpm/qfpm-1.1.3.tgz --save && npm approve-scripts qfpm  && cat package.json
+        run: npm install /home/runner/work/qfpm/qfpm/qfpm-1.1.3.tgz --save && npm approve-scripts qfpm && npm rebuild qfpm && cat package.json
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode 
       - name: Install NPM-FFLIB-COMMON
-        run: npm install npm-fflib-common --save && npm approve-scripts npm-fflib-common
+        run: npm install npm-fflib-common --save && npm approve-scripts npm-fflib-common && npm rebuild qfpm && npm approve-scripts npm-fflib-mocks
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Display node modules
         run: ls -la node_modules
