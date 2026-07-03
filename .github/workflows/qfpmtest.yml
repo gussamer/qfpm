@@ -35,8 +35,11 @@ jobs:
       - name: Setup Package.json
         run: npm init -y
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
+      - name: Build QFPM
+        run: npm run build && npm pack --pack-destination ~/
+        working-directory: /home/runner/work/qfpm/qfpm
       - name: Install QFPM
-        run: npm install /home/runner/work/qfpm/qfpm --save
+        run: npm install /home/runner/work/qfpm/qfpm/local-package-1.0.0.tgz --save
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Install NPM-FFLIB-COMMON
         run: npm install npm-fflib-common --save
