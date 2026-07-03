@@ -1,7 +1,6 @@
 name: Test QFPM Funtionality
 
 on:
-  push:
   pull_request:
 
 jobs:
