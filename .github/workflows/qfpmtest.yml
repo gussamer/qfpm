@@ -31,7 +31,7 @@ jobs:
       - name: Check Auth Orgs
         run: sf org list --json
       - name: Clone FFLIB Sample Code
-        run: cd /home/runner/work/qfpm/ && git clone pulling-upstream https://github.com/gussamer/fflib-apex-common-samplecode.git
+        run: cd /home/runner/work/qfpm/ && git clone -b pulling-upstream https://github.com/gussamer/fflib-apex-common-samplecode.git
       - name: Setup Package.json
         run: npm init -y
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
