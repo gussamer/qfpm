@@ -41,7 +41,10 @@ jobs:
         run: npm install /home/runner/work/qfpm/qfpm/qfpm-1.1.3.tgz --save && npm approve-scripts qfpm && npm rebuild qfpm && cat package.json
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode 
       - name: Install NPM-FFLIB-COMMON
-        run: npm install npm-fflib-common --save && npm approve-scripts npm-fflib-common && npm approve-scripts npm-fflib-mocks && npm rebuild npm-fflib-common
+        run: npm install npm-fflib-common --save 
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
+      - name: Allow Scripts and Rebuild
+        run: npm approve-scripts --allow-scripts-pending && npm rebuild npm-fflib-common
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Display node modules
         run: ls -la node_modules
