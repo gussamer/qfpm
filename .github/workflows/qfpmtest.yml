@@ -43,9 +43,6 @@ jobs:
       - name: Install NPM-FFLIB-COMMON
         run: npm install npm-fflib-common --save 
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
-      - name: Allow Scripts and Rebuild
-        run: npm approve-scripts npm-fflib-common npm-fflib-mocks && npm rebuild --force npm-fflib-common && cat package.json
-        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Display node modules
         run: tree node_modules
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
