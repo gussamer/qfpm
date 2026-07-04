@@ -47,7 +47,7 @@ jobs:
         run: npm approve-scripts npm-fflib-common npm-fflib-mocks && npm rebuild --force npm-fflib-common && cat package.json
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Display node modules
-        run: ls -la node_modules && ls -ls node_modules/npm-fflib-common
+        run: tree node_modules
         working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
         if: always()
       - name: Setup Devlopment Env
