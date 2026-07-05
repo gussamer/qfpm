@@ -1,49 +1,61 @@
 name: Test QFPM Funtionality
 
 on:
-  push:
-  pull_request_target:
-  workflow_dispatch:
+  pull_request:
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
 
     steps:
-      - uses: actions/checkout@v2 #Check out this repo
+      - uses: actions/checkout@v7 #Check out this repo 
         with:
           ref: ${{github.event.pull_request.head.ref}}
-          repository: ${{github.event.pull_request.head.repo.full_name}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}     
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          package-manager-cache: false # Disable automatic npm caching if not required
       - name: Install SFDX CLI and authorize DevHub
-        uses: apex-enterprise-patterns/setup-sfdx@v2 #We're using a fork of https://github.com/sfdx-actions/setup-sfdx for safety
+        uses: gussamer/setup-sfdx@v2.0.1 #We're using a fork of https://github.com/sfdx-actions/setup-sfdx for safety
         with:
           sfdx-auth-url: ${{ secrets.DEVHUB_SFDXURL }}
-      - run: sf force config set target-dev SFDX-ENV -g #Even though the setup-sfdx action uses --setdefaultdevhubusername, it doesn't seem to stick since it uses --setdefaultusername so we brute force it here
-      #- run: sf force org create -f ./config/project-scratch-def.json --setdefaultusername -d 1
-      #- run: sf force source push
-      #- run: sf force apex test run -w 5
-      #git clone fflib sample
+      - name: Set Default Devhub
+        run: sf force config set --global target-dev-hub=SFDX-ENV #Even though the setup-sfdx action uses --setdefaultdevhubusername, it doesn't seem to stick since it uses --setdefaultusername so we brute force it here
+      - name: Check Auth Orgs
+        run: sf org list --json
       - name: Clone FFLIB Sample Code
-        run: git clone https://github.com/apex-enterprise-patterns/fflib-apex-common-samplecode.git
+        run: cd /home/runner/work/qfpm/ && git clone -b pulling-upstream https://github.com/gussamer/fflib-apex-common-samplecode.git
       - name: Setup Package.json
         run: npm init -y
-        working-directory: ./fflib-apex-common-samplecode
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
+      - name: Build QFPM
+        run: npm pack --pack-destination . && ls -la
+        working-directory: /home/runner/work/qfpm/qfpm
       - name: Install QFPM
-        run: npm install qfpm --save
-        working-directory: ./fflib-apex-common-samplecode
+        run: npm install /home/runner/work/qfpm/qfpm/qfpm-1.1.3.tgz --save && npm approve-scripts qfpm && cat package.json
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode 
       - name: Install NPM-FFLIB-COMMON
-        run: npm install npm-fflib-common --save
-        working-directory: ./fflib-apex-common-samplecode
+        run: npm install npm-fflib-common --save 
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
+      - name: Display node modules
+        run: tree node_modules
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
+        if: always()
       - name: Setup Devlopment Env
         run: npm run setup
-        working-directory: ./fflib-apex-common-samplecode
-      #run test
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
+      - name: Check Auth Orgs Again
+        run: sf org list --json
       - name: Run Tests
         run: npm run test
-        working-directory: ./fflib-apex-common-samplecode
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
       - name: Destroy scratch org
-        #run: sf force apex test run
         run: npm run clean
-        working-directory: ./fflib-apex-common-samplecode
+        working-directory: /home/runner/work/qfpm/fflib-apex-common-samplecode
         if: always()

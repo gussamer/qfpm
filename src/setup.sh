@@ -5,6 +5,11 @@ export DXPM_SETUP_PACKAGE_NAME="$($DXPM_NODE_MOD/.bin/qgetprojectname)"
 export DXPM_CURRENT_PACKAGE_NAME="$DXPM_SETUP_PACKAGE_NAME"
 echo "[+] checking if $DXPM_SETUP_PACKAGE_NAME scrach org exists or creating it"
 $DXPM_NODE_MOD/.bin/qisscratched || $DXPM_NODE_MOD/.bin/qscratch && wait
+if [ "$DXPM_SETUP_PACKAGE_NAME" = "$DXPM_CURRENT_PACKAGE_NAME" ]; then
+  echo "[+] removing dependancies for $DXPM_CURRENT_PACKAGE_NAME to force reinstall"
+  $DXPM_NODE_MOD/.bin/qremovedepends
+  echo "[+] finished removing dependancies for $DXPM_CURRENT_PACKAGE_NAME"
+fi
 echo "[+] installing package $DXPM_SETUP_PACKAGE_NAME"
 npm install --omit=dev && wait
 echo "[+] finished installing package $DXPM_SETUP_PACKAGE_NAME"
