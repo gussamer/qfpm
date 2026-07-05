@@ -15,11 +15,9 @@ The package mangement methodology intended with qfpm is meant to aid with the de
 
 - Updated the commands for the new sf structure
 
-- The removal of the bin/qfpm script dependancy complete, automated removal doesn't seem to work so feel free to delete them after upgrading
+- Fixed install not deploying dependancies
 
-- Conversion to using native npm bin definition seems stable and opens up better linux support
-
-- WSL support seems to be working though with a big salesforce asterisk down in the AT4DX example
+- Updated github workflow for tests
 
 ## Install
 
@@ -36,6 +34,10 @@ The package mangement methodology intended with qfpm is meant to aid with the de
 1. Install the qfpm tools with*
     ```bash
     npm install qfpm --save --only=prod
+    ```
+1. Approve the qfpm tools to use scripts with*
+    ```bash
+    npm approve-scripts qfpm
     ```
 1. Run setup to create scratch org and deploy dependancies
     ```bash
@@ -69,6 +71,10 @@ This example demonstates facilitating two layers of dependancies required to get
     ```bash
     npm install --save qfpm
     ```
+1. Approve the qfpm tools to use scripts with*
+    ```bash
+    npm approve-scripts qfpm
+    ```
 1. install the the fflib commons
     ```bash
     npm install --save npm-fflib-common
@@ -99,6 +105,10 @@ This example expands on the previous fflib sample code to satisfy the requirment
 1. install the qfpm tools
     ```bash
     npm install --save qfpm
+    ```
+1. Approve the qfpm tools to use scripts with*
+    ```bash
+    npm approve-scripts qfpm
     ```
 1. install the at4dx libraries
     ```bash
