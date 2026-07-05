@@ -1,7 +1,7 @@
 [![NPM](https://img.shields.io/npm/v/qfpm.svg)](https://www.npmjs.com/package/qfpm)
 [![Downloads/week](https://img.shields.io/npm/dw/qfpm.svg)](https://npmjs.org/package/qfpm)
 ![QFPM Tests](https://github.com/gussamer/qfpm/actions/workflows/qfpmtest.yml/badge.svg)
-[![qfpm](https://snyk.io/advisor/npm-package/qfpm/badge.svg)](https://snyk.io/advisor/npm-package/qfpm)
+[![Known Vulnerabilities](https://snyk.io/test/github/gussamer/qfpm/badge.svg?targetFile=package.json)](https://snyk.io/test/github/gussamer/qfpm?targetFile=package.json)
 [![License](https://img.shields.io/badge/ISC-blue.svg)](https://raw.githubusercontent.com/gussamer/qfpm/master/LICENSE)
 # QFPM
 
